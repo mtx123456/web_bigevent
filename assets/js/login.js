@@ -13,7 +13,6 @@ $(function(){
 
     // 从layUI中获取form对象
     var form = layui.form
-    // var layer = layui.layer
     // 通过form.verify()函数自定义校验规则
     form.verify({
         pwd: [/^[\S]{6,12}$/,'密码必须6到12位,且不能出现空格'],
@@ -29,18 +28,4 @@ $(function(){
             }
         }
     })
-
-    // $('#form_reg').on('submit',function(e){
-    //     e.prevenDefault()
-    //     var data = {
-    //         username:$('#form_reg [name=username]').val(),
-    //         password:$('#form_reg [name=password]').val()
-    //     }
-    //     $.post('http://ajax.frontend.itheima.net/api/reguser',data,function(res){
-    //         if(res.status !==0){
-    //             return console.log(res.message)
-    //         }
-    //         console.log('注冊成功！')
-    //     })
-    // })
 })
