@@ -13,7 +13,7 @@ $(function(){
 
     // 从layUI中获取form对象
     var form = layui.form
-    var layer = layui.layer
+    var layui = layui.layui
     // 通过form.verify()函数自定义校验规则
     form.verify({
         pwd: [/^[\S]{6,12}$/,'密码必须6到12位,且不能出现空格'],
@@ -31,15 +31,17 @@ $(function(){
     })
 
     // 监听注册表单提交事件
-    $('#form_reg').on('submit',function(e){
-        e.preventDefault()
-        $.post('http://api-breakingnews-web.itheima.net/',
-        {username:$('#form_reg [name=username]').val(),password: $('#form_reg [name=passworf]').val()},
-        function(res){
-            if(res.status !==0){
-             return layer.msg(res.message)
-            }
-            layer.msg('注册成功，请登录！')
-        })
-    })
+    // $('#form_reg').on('submit',function(e){
+    //     e.preventDefault()
+    //    var data = {
+    //     username: $('#form_reg[name=username]').val(),
+    //     password: $('#forn_reg[name=password]').val()
+    //    }
+    //    $.post('http://ajax/frontend.itheima/api/reguser',function(res){
+    //         if(res.status !==0){
+    //          return layer.msg(res.message)
+    //         }
+    //         layer.msg('注册成功，请登录！')
+    //    })
+    // })
 })
