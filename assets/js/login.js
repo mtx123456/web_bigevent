@@ -13,7 +13,7 @@ $(function(){
 
     // 从layUI中获取form对象
     var form = layui.form
-    var layui = layui.layui
+    // var layer = layui.layer
     // 通过form.verify()函数自定义校验规则
     form.verify({
         pwd: [/^[\S]{6,12}$/,'密码必须6到12位,且不能出现空格'],
@@ -23,25 +23,24 @@ $(function(){
             // 还需要拿到再次确认密码框中的内容
             // 然后进行一次等于的判断
             // 如果判断失败，则return一个提示消息即可
-            var pwd = $('.reg-box [name=password').val()
+            var pwd = $('reg-box [name=password').val()
             if(pwd !== value){
                 return '两次密码不一致'
             }
         }
     })
 
-    // 监听注册表单提交事件
     // $('#form_reg').on('submit',function(e){
-    //     e.preventDefault()
-    //    var data = {
-    //     username: $('#form_reg[name=username]').val(),
-    //     password: $('#forn_reg[name=password]').val()
-    //    }
-    //    $.post('http://ajax/frontend.itheima/api/reguser',function(res){
+    //     e.prevenDefault()
+    //     var data = {
+    //         username:$('#form_reg [name=username]').val(),
+    //         password:$('#form_reg [name=password]').val()
+    //     }
+    //     $.post('http://ajax.frontend.itheima.net/api/reguser',data,function(res){
     //         if(res.status !==0){
-    //          return layer.msg(res.message)
+    //             return console.log(res.message)
     //         }
-    //         layer.msg('注册成功，请登录！')
-    //    })
+    //         console.log('注冊成功！')
+    //     })
     // })
 })
