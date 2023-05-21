@@ -35,7 +35,7 @@ $(function(){
             username:$('#form_reg [name=username]').val(),
             password:$('#form_reg [name=password]').val()
         }
-        $.post('http://api-breakingnews-web.itheima.net/',data,function(res){
+        $.post('/api/reguser',data,function(res){
             if(res.status !== 0) {
                 return layer.msg(res.message)
             }
@@ -48,7 +48,7 @@ $(function(){
     $('#form_login').submit(function(e){
         e.preventDefault()
         $.ajax({
-            url:'http://api-breakingnews-web.itheima.net/api/login',
+            url:'/api/login',
             method:'POST',
             // 快速获取表单中的数据
             data:$(this).serialize(),
@@ -57,11 +57,12 @@ $(function(){
                     return layer.msg('登录失败！')
                 }
                 layer.msg('登录成功！')
+                // 将登陆成功后得到的tiken字符串，保存到localstorage中
+                localStorage.setItem('token',res.token)
                 console.log(res.token)
                 // 跳转到后台页面
                 location.href='./index.html'
             }
         })
-
     })
 })
